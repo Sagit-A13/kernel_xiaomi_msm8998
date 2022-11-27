@@ -3015,7 +3015,7 @@ SYSCALL_DEFINE4(pidfd_send_signal, int, pidfd, int, sig,
 	if (flags)
 		return -EINVAL;
 
-	f = fdget(pidfd);
+	f = fdget_raw(pidfd);
 	if (!f.file)
 		return -EBADF;
 
